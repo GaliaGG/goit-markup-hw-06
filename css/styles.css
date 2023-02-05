@@ -11,12 +11,6 @@
   --modal-color: #fcfcfc;
 }
 
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -196,7 +190,7 @@ body {
 
   cursor: pointer;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.04em;
@@ -427,15 +421,9 @@ body {
 
 .text-footer {
   color: var(--additional-color);
-}
-
-.container > .logo {
-  margin-bottom: 16px;
-}
-
-.text-footer {
   max-width: 264px;
-  margin: 0;
+  margin-bottom: 0;
+  margin-top: 16px;
 }
 
 .social-media {
@@ -472,16 +460,22 @@ body {
   margin-left: 80px;
 }
 
+.subscribe-form {
+  display: flex;
+}
+
 .subscribe-input {
   width: 264px;
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0px 0px 0px 24px;
+  padding: 8px 0px 8px 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   background-color: transparent;
   color: var(--white);
+  font-size: 12px;
   font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .subscribe-input::placeholder {
@@ -493,7 +487,7 @@ body {
 .subscribe-btn {
   display: inline-flex;
   align-items: center;
-  max-width: 163px;
+  max-width: 165px;
   height: 40px;
 
   cursor: pointer;
@@ -541,7 +535,7 @@ body {
 
   cursor: pointer;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
@@ -673,10 +667,10 @@ body {
 
 .modal {
   width: 408px;
-  max-height: 584px;
+  min-height: 584px;
   background-color: var(--modal-color);
   padding-top: 72px;
-  padding-bottom: 104px;
+  padding-bottom: 24px;
   padding-left: 24px;
   padding-right: 24px;
   position: absolute;
@@ -742,6 +736,7 @@ body {
 .contact-label {
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
 }
 
 .contact-text {
@@ -767,12 +762,13 @@ body {
   padding-top: 0;
   padding-bottom: 0;
   padding-right: 0;
-  margin-bottom: 8px;
 }
 
 .contact-svg {
   position: absolute;
-  left: 40px;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
   width: 18px;
   height: 24px;
   fill: var(--title-color);
@@ -780,20 +776,12 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-svg.person {
-  top: 141px;
+.inp-svg {
+  position: relative;
 }
 
-.contact-svg.phone {
-  top: 209px;
-}
-
-.contact-svg.email {
-  top: 276px;
-}
-
-.contact-label:focus-within > .contact-input.contact-border,
-.contact-label:focus-within > .contact-textarea.contact-border {
+.contact-input.contact-border:focus,
+.contact-textarea.contact-border:focus {
   border-color: var(--acent-color);
 }
 
@@ -813,6 +801,10 @@ body {
   padding-left: 16px;
   padding-right: 0;
   padding-bottom: 0;
+
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
 }
 
 .contact-textarea::placeholder {
@@ -826,7 +818,11 @@ body {
 .label-accept {
   display: flex;
   align-items: center;
-  position: relative;
+  margin-bottom: 24px;
+}
+
+.input-accept {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .text-accept {
@@ -834,27 +830,23 @@ body {
   line-height: 1.33;
   letter-spacing: 0.04em;
   color: #757575;
-  padding-left: 24px;
+  margin: 0;
 }
 
 .link-accept {
   color: var(--acent-color);
 }
 
-.input-accept:focus {
-  background-color: var(--button-acent);
-}
-
 .check-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-
+  position: relative;
   width: 16px;
   height: 16px;
   background-color: transparent;
   border: 1.25px solid var(--title-color);
   border-radius: 2px;
+  margin-right: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .chek-svg {
@@ -865,6 +857,10 @@ body {
   fill: var(--white);
   width: 10px;
   height: 8px;
+}
+
+.input-accept:focus {
+  background-color: var(--button-acent);
 }
 
 .input-accept:checked + .check-icon {
@@ -880,10 +876,8 @@ body {
 
 /* Button */
 .btn-accept {
-  position: absolute;
-  bottom: 24px;
-  left: 119px;
-
+  display: block;
+  margin: 0 auto;
   width: 169px;
   height: 56px;
   padding: 16px 32px;
